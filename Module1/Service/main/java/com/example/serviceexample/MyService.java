@@ -1,0 +1,40 @@
+package com.example.serviceexample;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.widget.Toast;
+
+public class MyService extends Service {
+
+    public MyService()
+    {
+    }
+
+    @Override
+    public IBinder onBind(Intent intent)
+    {
+        // TODO: Return the communication channel to the service.
+        Toast.makeText(this, "Bind", Toast.LENGTH_SHORT).show();
+        throw new UnsupportedOperationException("Not yet implemented");
+
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Toast.makeText(this, "start command", Toast.LENGTH_SHORT).show();
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onStart(Intent intent, int startId) {
+        Toast.makeText(this, "Start", Toast.LENGTH_SHORT).show();
+        super.onStart(intent, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        Toast.makeText(this, "destroy", Toast.LENGTH_SHORT).show();
+        super.onDestroy();
+    }
+}
